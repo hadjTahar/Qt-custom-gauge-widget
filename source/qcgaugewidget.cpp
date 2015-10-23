@@ -665,14 +665,26 @@ void QcNeedleItem::setCurrentValue(float value)
         mCurrentValue = mMaxValue;
     else
         mCurrentValue = value;
-    if(mLabel!=0)
-        mLabel->setText(QString::number(mCurrentValue),false);
+    if(mLabel!=0){
+        QString currentValue;
+        mLabel->setText(currentValue.sprintf(mFormat.toStdString().c_str(), mCurrentValue),false);
+        Q_UNUSED(currentValue);
+    }
     update();
 }
 
 float QcNeedleItem::currentValue()
 {
     return mCurrentValue;
+}
+
+void QcNeedleItem::setValueFormat(QString format){
+    mFormat = format;
+    update();
+}
+
+QString QcNeedleItem::currentValueFormat(){
+    return mFormat;
 }
 
 void QcNeedleItem::setColor(const QColor &color)
