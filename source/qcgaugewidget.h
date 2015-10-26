@@ -275,6 +275,8 @@ public:
     void draw(QPainter*);
     void setCurrentValue(float value);
     float currentValue();
+    void setValueFormat(QString format);
+    QString currentValueFormat();
     void setColor(const QColor & color);
     QColor color();
 
@@ -295,6 +297,7 @@ private:
     void createCompassNeedle(float r);
     NeedleType mNeedleType;
     QcLabelItem *mLabel;
+    QString mFormat;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
