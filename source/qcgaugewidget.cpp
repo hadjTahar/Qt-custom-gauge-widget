@@ -659,17 +659,23 @@ void QcNeedleItem::draw(QPainter *painter)
 
 void QcNeedleItem::setCurrentValue(float value)
 {
-    if(value<mMinValue)
+       if(value<mMinValue)
         mCurrentValue = mMinValue;
     else if(value>mMaxValue)
         mCurrentValue = mMaxValue;
     else
         mCurrentValue = value;
-    if(mLabel!=0){
-        QString currentValue;
-        mLabel->setText(currentValue.sprintf(mFormat.toStdString().c_str(), mCurrentValue),false);
-        Q_UNUSED(currentValue);
-    }
+
+    if(mLabel!=0)
+        mLabel->setText(QString::number(mCurrentValue),false);
+
+/// This pull request is not working properly
+//    if(mLabel!=0){
+//        QString currentValue;
+//        mLabel->setText( currentValue ,false);
+//        mLabel->setText(currentValue.sprintf(mFormat.toStdString().c_str(), mCurrentValue),false);
+//        Q_UNUSED(currentValue);
+//    }
     update();
 }
 
