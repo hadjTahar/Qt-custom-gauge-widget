@@ -37,7 +37,7 @@
 QcGaugeWidget::QcGaugeWidget(QWidget *parent) :
     QWidget(parent)
 {
-    setMinimumSize(250,250);
+    setMinimumSize(100,100);
 }
 
 QcBackgroundItem *QcGaugeWidget::addBackground(float position)
