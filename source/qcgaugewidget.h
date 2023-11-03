@@ -34,6 +34,7 @@
 #include <QObject>
 #include <QRectF>
 #include <QtMath>
+#include <QPainterPath>
 
 
 
